@@ -1,37 +1,45 @@
 <?php
 	require ('./includes/config.inc.php');
 	require (MYSQL);
+	$page_title="Edit Catalog";
 	include ('./includes/header.php');
 	
 ?>
-			<div id="home">
+			<div id="homeM">
+				
+				<p class="center"><a href="home.php">Home</a> &gt; <a class="current" href="admin.php">Admin</a></p>
+					<!--<a href="#"><img class="search" src="img/search1.png" alt="search bar" /></a>-->
+						<?php echo searchBar(); ?>
+				
 			
-				<div class="grid_8">
-					<div id="check">
-						<h1>Enter a New Item:</h1>
+				
+					<div id="checkM">
+						<hr /><h1>Enter a New Item:</h1>
 					<form action="">
 						<fieldset>
-							<p><input type="text" name="productID" size="45px" /> Product ID</p>
-							<p><input type="text" name="productName" size="20px" /> Product Name</p>
-							<p><input type="text" name="brandName" size="45px" /> Brand Name</p>
-							<p><input type="text" name="description" size="45px" /> Description</p>
-							<p><input type="text" name="feat1" size="35px" /> Feature 1</p>
-							<p><input type="text" name="feat2" size="35px" /> Feature 2</p>
-							<p><input type="text" name="feat3" size="30px" /> Feature 3</p>
-							<p><input type="text" name="category" size="20px" /> Category</p>
-							<p><input type="text" name="sku" size="25px" /> SKU</p>
-							<p><input type="text" name="stock" size="25px" /> Stock</p>
-							<p><input type="text" name="cost" size="10px" /> Cost</p>
-							<p><input type="text" name="price" size="10px" /> Price</p>
-							<p><input type="text" name="salePrice" size="10px" /> Sale Price</p>
-							<p><input type="text" name="productImage" size="45px" /> Product Image</p>
+							<input type="text" name="productID" placeholder="Product ID" />
+							<input type="text" name="productName" placeholder="Product Name" /> 
+							<input type="text" name="brandName" placeholder="Brand Name"/> 
+							<input type="text" name="description" placeholder="Description" /> 
+							<input type="text" name="feat1" placeholder="Feature 1" /> 
+							<input type="text" name="feat2" placeholder="Feature 2" /> 
+							<input type="text" name="feat3" placeholder="Feature 3" /> 
+							<input type="text" name="category" placeholder="Category" /> 
+							<input type="text" name="sku" placeholder="SKU" /> 
+							<input type="text" name="stock" placeholder="Stock" /> 
+							<input type="text" name="cost" placeholder="Cost" /> 
+							<input type="text" name="price" placeholder="Price" /> 
+							<input type="text" name="salePrice" placeholder="Sale Price" /> 
+							<input type="text" name="productImage" placeholder="Product Image" /> 
 						</fieldset>
 					</form>
 					<h1>Or check an item's stock: </h1> 
-					<p><input type="text" name="productImage" size="45px" /> (enter Product ID)</p>
+					<input type="text" name="productImage" placeholder="(enter Product ID)" />
 					</div>
 					
-				</div>
+				
+				
+					<hr />
 				
 
 				

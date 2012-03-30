@@ -5,11 +5,11 @@ function getUserNameLink() {
 	if (isset($_SESSION['user_id'])) {
 		// Is admin
 		if (isset($_SESSION['user_admin'])) {
-			return '<a href="admin.php">' . $_SESSION['user_id'] . '</a>';
+			return '<a href="admin.php" data-inline="true">' . $_SESSION['user_id'] . '</a>';
 		}
 		// Is regular user
 		else {
-			return '<a href="client.php">' . $_SESSION['user_id'] . '</a>';
+			return '<a href="client.php" data-inline="true">' . $_SESSION['user_id'] . '</a>';
 		}
 	}
 	else require ('login_form.inc.php'); // Show login form if not logged in
@@ -123,4 +123,20 @@ function resize_image($file, $size, $delete_orig=FALSE) {
 	
 	imagedestroy($dst);
 	return $file_name;
+}
+
+/***********************************************
+//          For searching 
+//
+***********************************************/
+
+function search_transform_term($term){
+	$term = preg_replace("/(\s)/e", "'{WHITESPACE-'.ord('\$1').'}'", $term);
+	$term = preg_replace("/,/", "{COMMA}", $term);
+	return $term;
+}
+
+function searchBar(){
+		return '<form action="search.php" method="get" name="searchForm" >'.
+			'<a href="javascript: document.searchForm.submit();"></a><input type="text" name="for" class="search" data-type="search" placeholder="Search Our Catalog"  /></form>';
 }

@@ -3,17 +3,25 @@
 // ********************************** //
 // ************ SETTINGS ************ //
 
-$live = false;
+$live = true;
 $contact_email = 'gregpardo@knights.ucf.com';
 
 // ********************************** //
 // ************ CONSTANTS *********** //
 
+if (!$live) {
 // Determine location of files and the URL of the site:
 define ('BASE_URI', 'private/');
 define ('BASE_URL', 'localhost/edunation/');
-define ('PDFS_DIR', BASE_URI . 'pdfs/'); // Added in Chapter 5.
+define ('PDFS_DIR', BASE_URI . 'pdfs/'); 
 define ('MYSQL', BASE_URI . 'mysql.inc.php');
+}
+else {
+	define ('BASE_URI', 'private/');
+	define ('BASE_URL', 'sulley.dm.ucf.edu/~dig4530c_group06/v1/');
+	define ('PDFS_DIR', BASE_URI . 'pdfs/'); 
+	define ('MYSQL', BASE_URI . 'mysql.inc.php');
+}
 
 // Start the session:
 session_start();
@@ -86,5 +94,5 @@ function redirect_invalid_user($check = 'user_id', $destination = 'index.php', $
 
 
 // For debugging
-$_SESSION['user_id'] = "Admin";
-$_SESSION['user_type'] = 'admin';
+//$_SESSION['user_id'] = "Admin";
+//$_SESSION['user_type'] = 'admin';

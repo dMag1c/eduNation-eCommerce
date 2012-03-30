@@ -1,9 +1,9 @@
 <?php
 
-// Set the database access information as constants:
+// Set the database access information as constants:127.0.0.1 dig4530c_group06
 DEFINE ('DB_USER', 'root');
-DEFINE ('DB_PASSWORD', '');
-DEFINE ('DB_HOST', '127.0.0.1');
+DEFINE ('DB_PASSWORD', 'root');
+DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_NAME', 'edunation');
 
 // Make the connection:

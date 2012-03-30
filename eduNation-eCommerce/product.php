@@ -1,6 +1,7 @@
 <?php
 	require ('./includes/config.inc.php');
 	require (MYSQL);
+	$page_title = "Products";
 	include ('./includes/header.php');
 	
 	if (isset($_GET["product_id"])) {
@@ -10,11 +11,11 @@
 		$productID = null;
 	}
 ?>
-			<div id="home"> 
-				<div class="grid_12">
+			<div id="homeM"> 
 				
 				
-				<p><a href="home.php">Home</a> &gt; 
+				
+				<p class="center"><a href="home.php">Home</a> &gt; 
 					<?php
 						// This code does Products -> Category -> Current Product Name
 						if ($productID) {
@@ -38,11 +39,11 @@
 						}
 					?>
 				</p>
-					<a href="#"><img class="search" src="img/search1.png" alt="search bar" /></a>
-						<input class="search" type="text" />
-				</div>
-				<div class="grid_2">
-					<div id="sidenav">
+					<!--<a href="#"><img class="search" src="img/search1.png" alt="search bar" /></a>-->
+						<?php echo searchBar(); ?>
+				
+				
+					<div id="sidenavM">
 						<ul>
 							<?php 
 
@@ -53,12 +54,12 @@
 							{
 								array_push($categories_rows, $row);
 								$categoryLink = '<a href="catalog.php?category='.$row['id'].'">';
-								echo '<li>'.$categoryLink.$row['name'].'</a></li>';
+								//echo '<li>'.$categoryLink.$row['name'].'</a></li>';
 							}
 							?>
 						</ul>
 					</div>
-				</div>
+				
 				<?php 
 					// Display products in specific category
 					if (!$productID) {
@@ -77,7 +78,7 @@
 							$productDesc = $row['description'];
 							$image = $row['image'];
 						?>
-				<div class="grid_4 suffix_1">
+				
 					<div id="item">
 						<?php 
 						echo "<h1>".$productName."</a></h1>";
@@ -85,9 +86,9 @@
 						echo "<img src=\"img/".imageLarge($image)."\" alt=\"$productName\" />";
 						?>
 					</div>
-				</div>
-				<div class="grid_3">
-					<div id="itemright">
+				
+				
+					<div id="itemrightM">
 						<?php
 						$salePrice = productIsOnSale($dbc, $row['id']);
 						// On sale display sale price
@@ -96,14 +97,18 @@
 							echo "<h3 class=\"sale\">SALE: $salePrice</h3>";
 						}
 						else {
-							echo "<br /><br /><br /><h3>Price: $productPrice</h3>";
+							echo "<br /><h3>Price: $productPrice</h3>";
 						}
 						?>
-						<p>Qty:<input type="text" /></p>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" id="itemAlignR">Qty:&nbsp;</div>
+                            <div class="ui-block-b"><input type="text" /></div>
+                        </div>
+					
 						<p><?php echo $productDesc ?></p>
-						<div class="tab4"><a href="#">Add to Cart</a></div>
+						<a href="#" data-role="button">Add to Cart</a>
 					</div>
-				</div>
+				
 						<?php
 						}
 					}
